@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navbar Desplegable Completo</title>
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+  <link rel="stylesheet" href="../styles/navbar.css">
+  <style>
+    /* basic style */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    #spark1{
+      background-color: #000;
+      height: 100px;
+      width: 100px;
+      
+    }
+    #spark2{
+      position: absolute;
+      z-index: -100;
+      background-color: #000;
+      height: 2000px;
+      bottom: 30px;
+      width: 100px;
+      transform: rotate(120deg);
+    }
+    #spark3{
+      background-color: #000;
+      height: 100px;
+      width: 100px;
+    }
+
+    main > img {
+      height: 100dvh;
+      object-fit: cover;
+      position: fixed;
+      z-index: -100;
+      transition-duration: 1s;
+      animation: ease;
+    }
+    header{
+      display: grid;
+      justify-content: center;
+    }
+
+    main {
+      height: 300dvh;
+      display: grid;
+      justify-items: center;
+    }
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #FFF;
+      color: #000000;
+      font-size: 20px;
+    }
+    /* navbar code */
+
+    /* 3rd section */
+    #section_2{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        color: #FFF;
+        background-image: linear-gradient(transparent ,  #000 50%);
+    }
+    #section_2 > h2{
+        align-content: center;
+        text-align: center;
+    }
+    #section_2 > iframe{
+        align-content: center;
+        align-self: center;
+    }
+    iframe{
+      border-radius: 20px;
+      margin: 0 20px 0 0;
+    }
+    /* first section */
+    header{
+        display: grid;
+        position: absolute;
+        justify-content: center;
+        bottom:-500px;
+    }
+    header >h1{
+        font-size: 100px;
+        margin-bottom: 0;
+        text-align: center;
+        transition-duration: 0.5s;
+    }
+    header >h1:hover{
+      font-size: 110px;
+      color: #fff;
+      text-shadow: 0px 3px 21px rgba(0,0,0,0.6);
+    }
+    header >h6{
+        background-color: #000;
+        width: 100vw;
+        height: 30px;
+        color: #FFF;
+        margin: 0;
+        text-align: center;
+        align-content: center;
+    }
+
+    /* 2nd section */
+    #who{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 1000px;
+        background-color: #000;
+        color: #FFF;
+        justify-content: center;
+    }
+    #who  >p{
+      align-content: center;
+    }
+    #who > h2{
+        font-size: 100px;
+        align-content: center;
+        text-align: center;
+        overflow-wrap: anywhere;
+        transition: .5s;
+    }
+    @media (max-width: 768px) {
+      #who{ 
+        h2{
+        font-size: 50px;
+        }
+        p{
+          font-size: 10px;
+        }
+      }
+
+      header> h1{
+        font-size: 50px;
+      }
+      /* 1st section */
+      header >h1:hover{
+        font-size: 60px;
+      }
+      /* 2nd section */
+      #who{
+        text-overflow: ellipsis;
+        padding: 0 50px;
+    }}
+
+    /*this is for navbar
+    /* This is to exapend the menu but i think it loooks kinda weird, so i just comment it */
+    
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <button class="toggle-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
+  <div id="navMenu" class="nav-menu">
+    <a class="nav-link" href="index.html" onclick="closeMenu()">Inicio</a>
+    <a class="nav-link" href="login.html" onclick="closeMenu()">Iniciar sesión</a>
+    
+    <div class="nav-item">
+      <span class="nav-link" onclick="toggleDropdown()">Sneakers ▼</span>
+      <div id="dropdown" class="dropdown">
+        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total kids</a>
+        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total teens</a>
+        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total senior</a>
+        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total lady</a>
+        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total All stars</a>
+      </div>
+    </div>
+
+    <a class="nav-link" href="#" onclick="closeMenu()">Ayuda</a>
+  </div>
+</div>
+<script src="../scripts/navbar.js"></script>
+<script type="module" src="../scripts/indexBackground.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+
+  <div id="spark1"></div>
+  <div id="spark2"></div>
+  <div id="spark3"></div>
+
+<header>
+    <h1>
+            T O T A L
+            <br>
+            S N E A K E R S
+        </h1>
+        <h6>para un estilo total</h6></header>
+    <main>
+    
+    </main>
+
+    <section id="who">
+        <p>
+            Somos más que una tienda de zapatillas; somos una comunidad basada en una pasión compartida por el calzado, el estilo y la autoexpresión.
+            <br><br>
+            En Totala, creemos que cada par de zapatillas cuenta una historia. Desde zapatillas clásicas que evocan nostalgia hasta diseños vanguardistas que revolucionan la innovación, seleccionamos una colección diversa para todos los gustos y preferencias. Ya seas un coleccionista apasionado, un entusiasta casual o alguien que simplemente busca el par perfecto para completar su look, tenemos algo para ti.
+            <br><br>
+            Nuestra misión es simple: conectar a las personas con las zapatillas que les llaman la atención. 
+        </p>
+        <h2>¿Quiénes somos nosotros?
+        </h2>
+    </section>
+    <section id="section_2">
+        <h2>
+            Más de 500 sucrulsales en chilanngolandia
+        </h2>
+      <iframe width="80%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=C.%20Cam.%20a%20Nextengo,%20Santa%20Apolonia,%20Azcapotzalco,%2002790%20Ciudad%20de%20M%C3%A9xico,%20CDMX+(TOTAL%20SNEAKERS)&amp;t=p&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Cycling gps</a></iframe>
+    </section>
+
+    <footer>
+        <h3>
+            ¿Listo para ser un cliente <strong>TOTAL</strong>!
+        </h3>
+        <ul id="">
+            <div id="socialMedia">
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/20/20673.png" alt="F-img">
+                <a href="https://www.facebook.com/nike/?locale=es_LA" target="_blank">
+                    Facebook
+                </a>
+                
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="I-Img">
+                <a href="https://www.instagram.com/nike/" target="_blank">
+                    Instagram
+                </a>
+              </li>
+            <li>
+                <img src="https://images.icon-icons.com/1558/PNG/512/353427-logo-twitter_107479.png" alt="t-img">
+                <a href="https://x.com/nike" target="_blank">
+                    Twitter
+                </a>
+            </li>
+        </div>
+            <p>
+            Creado por 
+            
+            <a href="https://github.com/Galshua" target="_blank"><b>Joshua García Alcántara</b></a>
+            <img src="https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png" alt="gh">
+        </p>
+        </ul>
+    </footer>
+</body>
+</html>

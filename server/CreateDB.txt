@@ -1,0 +1,43 @@
+CREATE DATABASE IF NOT EXISTS sneakers_db;
+USE sneakers_db;
+
+-- Tabla para usuarios
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla para sneakers
+CREATE TABLE IF NOT EXISTS sneakers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category ENUM('Total kids', 'Total teens', 'Total senior', 'Total lady', 'Total all stars') NOT NULL,
+    name VARCHAR(150) NOT NULL,
+    description TEXT,
+    price DECIMAL(8,2) NOT NULL,
+    stock INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Registros ejemplo para usuarios (con password hashed ficticio)
+INSERT INTO users (email, password) VALUES
+('user1@example.com', '$2y$10$abcdefghijklmnopqrstuv1234567890abcdefghi'), 
+('user2@example.com', '$2y$10$mnopqrstuvabcdefghijkl1234567890abcdefghi');
+
+-- Registros ejemplo para sneakers
+INSERT INTO sneakers (category, name, description, price, stock) VALUES
+('Total kids', 'Kid Runner 2025', 'Zapatilla ligera para niños, ideal para correr y jugar.', 29.99, 50),
+('Total teens', 'Urban Flash', 'Diseño moderno y colorido para jóvenes urbanos.', 49.99, 30),
+('Total senior', 'Comfort Step', 'Máxima comodidad para todas las edades.', 39.99, 40),
+('Total lady', 'Elegance Red', 'Elegante y estilizada para mujeres con buen gusto.', 59.99, 20),
+('Total all stars', 'Classic Star', 'Modelo icónico, clásico y duradero.', 69.99, 15);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sneaker_id INT NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sneaker_id) REFERENCES sneakers(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

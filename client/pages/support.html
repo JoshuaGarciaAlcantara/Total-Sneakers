@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Soporte - TotalSneakers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    .support-container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #111;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: red;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      border-top: 1px solid red;
+      padding-top: 20px;
+    }
+
+    a {
+      color: red;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="support-container">
+  <h1>¿Necesitas ayuda?</h1>
+  <p>Estamos aquí para ayudarte. Completa el siguiente formulario y te responderemos lo antes posible.</p>
+
+  <form action="send_support.php" method="POST">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="mensaje" rows="5" placeholder="Describe tu problema o pregunta" required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+
+  <div class="contact-info">
+    <h3>También puedes contactarnos:</h3>
+    <p>📧 Correo: <a href="mailto:soporte@totalsneakers.com">soporte@totalsneakers.com</a></p>
+    <p>📞 Teléfono: +52 55 1234 5678</p>
+    <p>📍 Dirección: Calle Sneaker #500, CDMX</p>
+  </div>
+</div>
+
+</body>
+</html>

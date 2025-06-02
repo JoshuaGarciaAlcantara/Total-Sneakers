@@ -1,0 +1,129 @@
+.navbar {
+      
+      font-size: 10px;
+      background-color: #000;
+      padding: 10px 20px;
+      width: 100%;
+      position: fixed;
+      z-index: 10;
+    }
+
+    .toggle-btn {
+      background-color: #000000;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 30px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .nav-menu {
+      max-height: 0;
+      overflow: hidden;
+      background-color: #000;
+      transition: max-height 0.4s ease;
+    }
+
+    .nav-menu.open {
+      max-height: 1000px; /* Lo suficiente para mostrar todo el menú */
+    }
+
+    .nav-link {
+      display: block;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background-color: #222;
+    }
+
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #111;
+    }
+
+    .dropdown.open {
+      max-height: 300px;
+    }
+
+    .dropdown a {
+      padding-left: 40px;
+    }
+
+    button{
+        display: flex;
+        flex-direction: column;
+        width: 5rem;
+        height: 5rem;
+        border: 0;
+        background: transparent;
+        gap: .65rem;
+    }
+    button > div{
+        background: rgb(255, 255, 255);
+        height: 2px;
+        width: 100%;
+        border-radius: 5px;
+        transition: all .5s;
+        transform-origin: left;
+    }
+    button:focus div:first-child{
+        transform: rotate(90deg);
+        background-color: red;
+        width: 1.5rem;
+    }
+    button:focus div:nth-child(2){
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    button:focus div:last-child{
+        transform: rotate(-90deg);
+        background-color: red;
+        width: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      button{
+        width: 5rem;
+        height: 3rem;
+    }
+
+      .toggle-btn {
+        display: none;
+      }
+
+      .nav-menu {
+        display: flex;
+        max-height: none;
+        flex-direction: row;
+      }
+
+      .nav-link {
+        padding: 10px 15px;
+        position: relative;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 200px;
+        display: none;
+        flex-direction: column;
+        max-height: none;
+      }
+
+      .dropdown a {
+        padding: 10px 15px;
+      }
+
+      .nav-item:hover .dropdown {
+        display: flex;
+      }
+    } /**/
+    

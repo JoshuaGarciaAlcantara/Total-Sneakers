@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="..//styles/login.css">
+    <link rel="stylesheet" href="..//styles/navbar.css">
+</head>
+<body>
+    <div class="navbar">
+  <button class="toggle-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
+  <div id="navMenu" class="nav-menu">
+    <a class="nav-link" href="index.html" onclick="closeMenu()">Inicio</a>
+    <a class="nav-link" href="login.html" onclick="closeMenu()">Iniciar sesión</a>
+    
+    <div class="nav-item">
+      <span class="nav-link" onclick="toggleDropdown()">Sneakers ▼</span>
+      <div id="dropdown" class="dropdown">
+        <a class="nav-link" href="kids.html" onclick="closeMenu()">Total kids</a>
+        <a class="nav-link" href="teens.html" onclick="closeMenu()">Total teens</a>
+        <a class="nav-link" href="senior.html" onclick="closeMenu()">Total senior</a>
+        <a class="nav-link" href="lady.html" onclick="closeMenu()">Total lady</a>
+        <a class="nav-link" href="allStars.html" onclick="closeMenu()">Total All stars</a>
+      </div>
+    </div>
+
+    <a class="nav-link" href="../../server/support.php" onclick="closeMenu()">Ayuda</a>
+  </div>
+</div>
+
+    <h2>Crear cuenta</h2>
+  <form action="../../server/signup.php"  method="post">
+    <input type="email" name="email" required placeholder="Correo electrónico">
+    <input type="password" name="password" required placeholder="Contraseña">
+    <button type="submit">Registrarse</button>
+  </form>
+
+
+
+  <footer>
+        <h3>
+            ¿Listo para ser un cliente <strong>TOTAL</strong>!
+        </h3>
+        <ul id="">
+            <div id="socialMedia">
+            <li>
+                <a href="">
+                    Facebook
+                </a>
+            </li>
+                <a href="">
+                    Instagram
+                </a>
+            <li>
+                <a href="">
+                    Twitter
+                </a>
+            </li>
+        </div>
+            <p>
+            Creado por 
+            <a href="">Joshua García Alcántara</a>
+        </p>
+        </ul>
+    </footer>
+</body>
+</html>

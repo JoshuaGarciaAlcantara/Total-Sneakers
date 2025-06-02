@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+  <button class="toggle-btn" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
+  <div id="navMenu" class="nav-menu">
+    <a class="nav-link" href="index.html" onclick="closeMenu()">Inicio</a>
+    <a class="nav-link" href="login.html" onclick="closeMenu()">Iniciar sesión</a>
+    
+    <div class="nav-item">
+      <span class="nav-link" onclick="toggleDropdown()">Sneakers ▼</span>
+      <div id="dropdown" class="dropdown">
+        <a class="nav-link" href="kids.html" onclick="closeMenu()">Total kids</a>
+        <a class="nav-link" href="teens.html" onclick="closeMenu()">Total teens</a>
+        <a class="nav-link" href="senior.html" onclick="closeMenu()">Total senior</a>
+        <a class="nav-link" href="lady.html" onclick="closeMenu()">Total lady</a>
+        <a class="nav-link" href="allStars.html" onclick="closeMenu()">Total All stars</a>
+      </div>
+    </div>
+
+    <a class="nav-link" href="#" onclick="closeMenu()">Ayuda</a>
+  </div>
+</div>
+<header>
+  <h1>Sneaker Inventary</h1>
+</header>
+
+<script>
+    
+function loadProducts() {
+  fetch('../../server/getProducts.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('products-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading products:', error));
+}
+</script>
+<section class="hero">
+  <h2>Check out our Tennis </h2>
+  <button onclick="loadProducts()">Refresh Products</button>
+  <button onclick="goToUpdateProducts()">add product</button>
+  <button onclick="goToUpdatesSells()">go to sales</button>
+  <button onclick="goToUpdatesClients()">go to Clients</button>
+  <button onclick="goToUpdatesSupliers()">go to supliers</button>
+</section>
+
+<section class="products" id="products-container">
+    <!-- Products will be loaded here -->
+  </section>
+  <footer>
+        <h3>
+            ¿Listo para ser un cliente <strong>TOTAL</strong>!
+        </h3>
+        <ul id="">
+            <div id="socialMedia">
+            <li>
+                <a href="">
+                    Facebook
+                </a>
+            </li>
+                <a href="">
+                    Instagram
+                </a>
+            <li>
+                <a href="">
+                    Twitter
+                </a>
+            </li>
+        </div>
+            <p>
+            Creado por 
+            <a href="">Joshua García Alcántara</a>
+            <img src="https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png" alt="gh.img">
+        </p>
+        </ul>
+    </footer>
+</body>
+</html>
