@@ -17,6 +17,10 @@ footer{
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+    footer >ul >li{
+        justify-items: center;
+    }
+
     footer >ul > div{
         list-style: none;
 
@@ -40,8 +44,8 @@ footer{
     footer > ul > p >img{
       filter: invert(100%);
       object-fit: contain;
-      width: 10px;
-      height: 10px;
+      width: 20px;
+      height: 20px;
     }
     @media (min-width: 768px) {
       header> h1{

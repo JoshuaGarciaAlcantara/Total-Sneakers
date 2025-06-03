@@ -90,11 +90,14 @@
     @media (min-width: 768px) {
       button{
         width: 5rem;
-        height: 3rem;
+        height: 2rem;
     }
 
       .toggle-btn {
         display: none;
+      }
+      .navbar{
+        padding: 10px 20px 0 0;
       }
 
       .nav-menu {

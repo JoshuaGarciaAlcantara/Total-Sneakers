@@ -1,7 +1,7 @@
 import { images } from '../scripts/images.js'
 
     const main = document.querySelector('main')
-    const MAX_FRAMES = 50
+    const MAX_FRAMES = 49
     let currentFrame = 0
 
     function updateImage(frame = 0) {
@@ -10,15 +10,12 @@ import { images } from '../scripts/images.js'
       img.src = src
     }
 
-    // init with the first image
     const img = document.createElement('img')
-    // append img to main
     main.appendChild(img)
     updateImage(currentFrame)
 
-    // Altura máxima del scroll
+    // our max scroll height
     let maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
     window.addEventListener('resize', () => {
       maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     });
@@ -27,13 +24,13 @@ import { images } from '../scripts/images.js'
 
     window.addEventListener('scroll', () => {
       if (Date.now() - lastFrameUpdate < 1) return true
-      // Actualizamos el contador
+      // update container
       lastFrameUpdate = Date.now()
-      // Posición actual del scroll
+      // curretn scroll position
       const scrollPosition = window.scrollY
-      // Calcular el porcentaje del scroll
+      // calculate scroll percent
       const scrollFraction = scrollPosition / maxScroll;
-      // ¿Qué frame le toca?
+      // What frame is next?
       const frame = Math.floor(scrollFraction * MAX_FRAMES)
       // nos evitemos algo de trabajo cuando
       // al hacer scroll, el frame que le toca es el mismo

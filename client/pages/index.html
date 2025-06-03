@@ -7,42 +7,69 @@
   <link rel="stylesheet" href="../styles/index.css">
   <link rel="stylesheet" href="../styles/footer.css">
   <link rel="stylesheet" href="../styles/navbar.css">
+  <link rel="stylesheet" href="../styles/scrollAnimation.css">
   <style>
+    @keyframes scrollAnimation{
+    from{
+        opacity: 0;
+        scale: 10%;
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+    }
+}
     /* basic style */
     *,
     *::before,
     *::after {
       box-sizing: border-box;
-      overflow-x: hidden;
+      overflow-x: visible;
+    }
+    main{
+      z-index: -1;
     }
     #spark1{
       background-color: #000;
+      height: 200px;
+      width: 100vw;
+      position: absolute;
+      bottom: 200px;
+      z-index: -21;
+      transform: rotate(44deg);
+      transition: 1s;
+    }
+    #spark2{
+      background-color: rgba(203, 35, 35, 0.6);
+      height: 200px;
+      width: 100vw;
+      position: absolute;
+      bottom: 200px;
+      right: 200px;
+      z-index: -19;
+      transform: rotate(44deg);
+      transition: 1s;
+    }
+    #spark1:hover{
+      background-color: rgb(251, 71, 251);
       height: 100px;
       width: 100px;
       
     }
-    #spark2{
-      position: absolute;
-      z-index: -100;
-      background-color: #000;
-      height: 2000px;
-      bottom: 30px;
-      width: 100px;
-      transform: rotate(120deg);
+    #spark2:hover{
+      background-color: rgb(203, 35, 35);
+
     }
-    #spark3{
-      background-color: #000;
-      height: 100px;
-      width: 100px;
-    }
+    
 
     main > img {
       height: 100dvh;
       object-fit: cover;
       position: fixed;
-      z-index: -100;
+      z-index: -20;
       transition-duration: 1s;
       animation: ease;
+      filter: drop-shadow(5px 5px 10px #000000);
     }
     header{
       display: grid;
@@ -68,13 +95,20 @@
     #section_2{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-content: center;
+        place-items: center;
         color: #FFF;
         background-image: linear-gradient(transparent ,  #000 50%);
     }
     #section_2 > h2{
+      width: fit-content;
+      height: fit-content;
+      bottom: 100;
         align-content: center;
         text-align: center;
+        transition: .5s;
+    }
+    #section_2 > h2:hover{
+        scale: 1.1
     }
     #section_2 > iframe{
         align-content: center;
@@ -83,6 +117,13 @@
     iframe{
       border-radius: 20px;
       margin: 0 20px 0 0;
+      transition: 1s;
+      animation: ease-in-out;
+    }
+    iframe:hover{
+      border-radius: 20px;
+      margin: 0 20px 0 0;
+      scale: .98;
     }
     /* first section */
     header{
@@ -96,6 +137,12 @@
         margin-bottom: 0;
         text-align: center;
         transition-duration: 0.5s;
+        /* the following code is for animation */
+        view-timeline-name: --show;
+        animation-name: scrollAnimation;
+        animation-fill-mode: both;
+        animation-timeline: --show;
+        animation-range: entry 25% cover 50%;
     }
     header >h1:hover{
       font-size: 110px;
@@ -123,6 +170,12 @@
     }
     #who  >p{
       align-content: center;
+      /* the following code is for animation */
+        view-timeline-name: --show;
+        animation-name: scrollAnimation;
+        animation-fill-mode: both;
+        animation-timeline: --show;
+        animation-range: entry 25% cover 50%;
     }
     #who > h2{
         font-size: 100px;
@@ -130,6 +183,12 @@
         text-align: center;
         overflow-wrap: anywhere;
         transition: .5s;
+        /* the following code is for animation */
+        view-timeline-name: --show;
+        animation-name: scrollAnimation;
+        animation-fill-mode: both;
+        animation-timeline: --show;
+        animation-range: entry 25% cover 50%;
     }
     @media (max-width: 768px) {
       #who{ 
@@ -152,7 +211,13 @@
       #who{
         text-overflow: ellipsis;
         padding: 0 50px;
-    }}
+    }
+      #section2{
+        background-color: antiquewhite;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+  }
 
     /*this is for navbar
     /* This is to exapend the menu but i think it loooks kinda weird, so i just comment it */
