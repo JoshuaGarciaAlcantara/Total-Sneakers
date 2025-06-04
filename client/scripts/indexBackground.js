@@ -1,7 +1,7 @@
 import { images } from '../scripts/images.js'
 
     const main = document.querySelector('main')
-    const MAX_FRAMES = 49
+    const MAX_FRAMES = 48
     let currentFrame = 0
 
     function updateImage(frame = 0) {
@@ -30,7 +30,7 @@ import { images } from '../scripts/images.js'
       const scrollPosition = window.scrollY
       // calculate scroll percent
       const scrollFraction = scrollPosition / maxScroll;
-      // What frame is next?
+      // What frame is next? Returns the neext integer for frames
       const frame = Math.floor(scrollFraction * MAX_FRAMES)
       // nos evitemos algo de trabajo cuando
       // al hacer scroll, el frame que le toca es el mismo

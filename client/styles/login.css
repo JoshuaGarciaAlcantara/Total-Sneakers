@@ -25,6 +25,7 @@ form {
       padding: 30px;
       border-radius: 10px;
       place-items: center;
+      transition-duration: .5s;
 
       h2{
         color: #FFF;
@@ -42,7 +43,7 @@ form {
       outline: 2px solid #cf2222;
     }
 
-    button {
+    form > button {
       justify-content: center;
       height: 30px;
       background-color: #e50914;
@@ -56,4 +57,10 @@ form {
               margin-top: 70px;
       }
 
+    }
+
+    .red{
+box-shadow: 0px 0px 16px -2px rgb(255, 0, 0);
+-webkit-box-shadow: 0px 0px 16px -2px rgb(255, 7, 7);
+-moz-box-shadow: 0px 0px 16px -2px rgb(255, 0, 0);
     }

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../styles/navbar.css">
   <link rel="stylesheet" href="../styles/scrollAnimation.css">
   <style>
+    /* scroll animation */
     @keyframes scrollAnimation{
     from{
         opacity: 0;
@@ -26,9 +27,10 @@
       box-sizing: border-box;
       overflow-x: visible;
     }
-    main{
-      z-index: -1;
-    }
+    
+    /*thing for the particles called sparks  */
+    /* th efollowing one will be just to ensure the sparks hoover */
+    
     #spark1{
       background-color: #000;
       height: 200px;
@@ -37,7 +39,7 @@
       bottom: 200px;
       z-index: -21;
       transform: rotate(44deg);
-      transition: 1s;
+      transition-duration: 1s;
     }
     #spark2{
       background-color: rgba(203, 35, 35, 0.6);
@@ -46,21 +48,77 @@
       position: absolute;
       bottom: 200px;
       right: 200px;
-      z-index: -19;
+      z-index: -20;
       transform: rotate(44deg);
       transition: 1s;
-    }
-    #spark1:hover{
-      background-color: rgb(251, 71, 251);
-      height: 100px;
-      width: 100px;
-      
     }
     #spark2:hover{
       background-color: rgb(203, 35, 35);
 
     }
-    
+    #spark3{
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: 1px;
+      animation: sparksAnimation1 20s infinite linear;
+      z-index: -25;
+    }
+    #spark4{
+      position: absolute;
+      background-color: aquamarine;
+      animation: sparksAnimation2 10s infinite linear;
+      width: 10px;
+      height: 10px;
+      right: 100px;
+      bottom: 1px
+    }
+    #spark5{
+      object-fit: contain;
+      position: absolute;
+      animation: sparksAnimation3 10s infinite linear;
+      width: 200px;
+      height: 200px;
+      bottom: 1px;
+      z-index: -21;
+    }
+
+    @keyframes sparksAnimation1{
+      from{
+        transform: translateX(100%);
+        transition-duration: 1s;
+      }
+      to {
+        transform: translateX(-450%) rotate(-40deg);
+        transition-duration: 1s;
+        background-color: transparent;
+      }
+    }
+    @keyframes sparksAnimation2{
+      from{
+        transform: translateX(100%);
+        transition-duration: 1s;
+      }
+      to {
+        transform: translateX(-450%) rotate(60deg);
+        background-color: transparent;
+        opacity: 0;
+        transition-duration: 1s;
+      }
+    }
+    @keyframes sparksAnimation3{
+      from{
+        transform: translateX(-100%);
+        transition-duration: 1s;
+      }
+      to {
+        transform: translateX(400%) rotate(60deg);
+        background-color: transparent;
+        opacity: 0;
+        transition-duration: 1s;
+      }
+    }
+    /* in this part ends the sparks animations */
 
     main > img {
       height: 100dvh;
@@ -133,6 +191,7 @@
         bottom:-500px;
     }
     header >h1{
+      width: 100vw;
         font-size: 100px;
         margin-bottom: 0;
         text-align: center;
@@ -145,19 +204,33 @@
         animation-range: entry 25% cover 50%;
     }
     header >h1:hover{
+      width: 100vw;
       font-size: 110px;
       color: #fff;
       text-shadow: 0px 3px 21px rgba(0,0,0,0.6);
     }
     header >h6{
-        background-color: #000;
-        width: 100vw;
         height: 30px;
         color: #FFF;
         margin: 0;
-        text-align: center;
-        align-content: center;
+        display: inline-block;
+        white-space: nowrap;
+        animation: floatText 30s infinite linear;
+        padding-left: 100%; /*Initial offset, which places the text off-screen*/
+        color:#000000;
     }
+    header >h6::before{
+      width: 1000px;
+      height: 10px;
+      background-color: #000;
+    }
+    @keyframes floatText {
+      to {
+        transform: translateX(-200%);
+        transition-duration: 1s;
+      }
+}
+
 
     /* 2nd section */
     #who{
@@ -247,7 +320,7 @@
       </div>
     </div>
 
-    <a class="nav-link" href="#" onclick="closeMenu()">Ayuda</a>
+    <a class="nav-link" href="../../server/support.php" onclick="closeMenu()">Ayuda</a>
   </div>
 </div>
 <script src="../scripts/navbar.js"></script>
@@ -256,7 +329,19 @@
 
   <div id="spark1"></div>
   <div id="spark2"></div>
-  <div id="spark3"></div>
+  <img id="spark3" src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1776,f_auto,q_auto/https://www.allbirds.com/cdn/shop/products/Allbirds_WL_RN_SF_PDP_Natural_White_BTY_6ff24683-2103-4b44-9094-7f15b48f6058.png?v=1703567534" alt="sneaker2">
+  <div id="spark4">
+    <img src="" alt="sneaker1">
+  </div>
+    <img id="spark5" src="https://www.hogan.com/medias/107-Hogan.png?context=bWFzdGVyfGltYWdlc3wxNTE4ODd8aW1hZ2UvcG5nfGltYWdlcy9oMzUvaGRjLzkzMzU2MTkxMjUyNzgucG5nfDE3NzcwYzMyMWNhYWE5ZWQzMWExNDI1NDExNzVhYjJhZmI5YmJjMzE1ZTVlZjI1YmNjMjk5MDk1OTdhMmI3NDY" alt="sneaker2">
+  <div id="spark6"></div>
+  <div id="spark7"></div>
+  <div id="spark8"></div>
+  <div id="spark9"></div>
+  <div id="spark10"></div>
+  <div id="spark11"></div>
+  <div id="spark12"></div>
+  <div id="spark13"></div>
 
 <header>
     <h1>
@@ -264,7 +349,7 @@
             <br>
             S N E A K E R S
         </h1>
-        <h6>para un estilo total</h6></header>
+        <h6>● Envío gratis en compras mayores a $999 ● Paga por transferencia y recibe 5% de descuento ● Compra a meses sin intereses ● Cambios y devoluciones sin costo ● Nuevas colecciones disponibles ● Regístrate y obtén 10% en tu primera compra ●</h6></header>
     <main>
     
     </main>

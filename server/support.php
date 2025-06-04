@@ -8,7 +8,7 @@
         margin: 0;
     }
     form { background: #222; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
-    input, textarea { width: 100%; padding: 10px; margin-top: 10px; background: #333; color: white; border: none; border-radius: 5px; }
+    input, textarea { field-sizing:content; 100%; padding: 10px; margin-top: 10px; background: #333; color: white; border: none; border-radius: 5px; }
     button { background: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 15px; cursor: pointer; }
   </style>
   <link rel="stylesheet" href="../client/styles/navbar.css">
