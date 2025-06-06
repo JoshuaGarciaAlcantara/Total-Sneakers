@@ -1,17 +1,29 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = escapeshellarg($_POST['nombre']);
+    $name = escapeshellarg($_POST['nombre']);
     $email = escapeshellarg($_POST['email']);
-    $mensaje = escapeshellarg($_POST['mensaje']);
+    $msj = escapeshellarg($_POST['mensaje']);
 
     // Llamar al script de Python
-    $comando = "python send_email.py " . escapeshellarg($nombre) . " " . escapeshellarg($email) . " " . escapeshellarg($mensaje);;
-    $salida = shell_exec($comando);
+    $command = "python send_email.py " . escapeshellarg($name) . " " . escapeshellarg($email) . " " . escapeshellarg($msj);;
+    $output = shell_exec($command);
 
-    if (strpos($salida, 'ENVIADO') !== false) {
-        echo "<script>alert('Mensaje enviado correctamente.'); window.location.href='support.php';</script>";
+    if (strpos($output, 'ENVIADO') !== false) {
+        echo "<script src=\"https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js\">
+        </script><script>
+        window.location.href='support.php';
+        const myPopup = new Popup({
+            id: \"my-popup\",
+            title: \"202\",
+            content: `
+                Tu mensaje ha sido enviado con éxito`,
+            showImmediately: true
+        });
+        </script>";
     } else {
-        echo "<script>alert('Error al enviar el mensaje.\\n$salida'); window.location.href='ayuda.php';</script>";
+        echo "<script>
+        alert('Error al enviar el mensaje.\\n$output'); 
+        window.location.href='ayuda.php';</script>";
     }
 }
 ?>

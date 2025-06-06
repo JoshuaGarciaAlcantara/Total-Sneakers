@@ -23,54 +23,10 @@ $result = $stmt->get_result();
 <head>
   <meta charset="UTF-8" />
   <title>Sneakers</title>
-  <style>
-    body {
-      background-color: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h2 {
-      color: #e50914;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    select {
-      padding: 8px;
-      font-size: 16px;
-      margin-bottom: 30px;
-      border-radius: 5px;
-      border: none;
-    }
-    .sneaker {
-      background-color: #111;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-    }
-    .sneaker h3 {
-      margin: 0 0 8px;
-      color: #e50914;
-    }
-    .sneaker p {
-      margin: 0 0 8px;
-      color: #ccc;
-    }
-    .price {
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-    .buy-btn {
-      background-color: #e50914;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="../client/styles/index.css">
   <link rel="stylesheet" href="../client/styles/navbar.css">
+  <link rel="stylesheet" href="../client/styles/footer.css">
+  <link rel="stylesheet" href="../client/styles/sneakers.css">
 </head>
 <body>
   <div class="navbar">
@@ -98,7 +54,7 @@ $result = $stmt->get_result();
   </div>
 </div>
 
-  <h2>Catálogo de Sneakers</h2>
+
 
   <form method="GET" id="categoryForm">
     <label for="category">Filtrar por categoría:</label>
@@ -111,26 +67,59 @@ $result = $stmt->get_result();
       <?php endforeach; ?>
     </select>
   </form>
-
+  <div class="sneakersContainer">
   <?php if ($result->num_rows > 0): ?>
     <?php while ($row = $result->fetch_assoc()): ?>
-      <div class="sneaker">
+      
+      <a class="sneaker" href="sneaker.php?name=<?= urlencode($row['name']) ?>" type="submit">
+        <img src="https://d1lfxha3ugu3d4.cloudfront.net/exhibitions/images/2015_Sneaker_Culture_1._AJ_1_from_Nike_4000W.jpg.jpg" alt="">
         <h3><?= htmlspecialchars($row['name']) ?></h3>
         <p><?= htmlspecialchars($row['description']) ?></p>
         <div class="price">$<?= number_format($row['price'], 2) ?></div>
-        <button class="buy-btn" <?= $row['stock'] > 0 ? '' : 'disabled' ?>>
-          <?= $row['stock'] > 0 ? 'Comprar' : 'Agotado' ?>
-        </button>
-      </div>
+    </a>
     <?php endwhile; ?>
   <?php else: ?>
     <p>No se encontraron sneakers para esta categoría.</p>
   <?php endif; ?>
+  </div>
 
   <?php
     $stmt->close();
     $conn->close();
   ?>
-
+<footer>
+        <h3>
+            ¿Listo para ser un cliente <strong>TOTAL</strong>!
+        </h3>
+        <ul id="">
+            <div id="socialMedia">
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/20/20673.png" alt="F-img">
+                <a href="https://www.facebook.com/nike/?locale=es_LA" target="_blank" id="facebook">
+                    Facebook
+                </a>
+                
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="I-Img">
+                <a href="https://www.instagram.com/nike/" target="_blank" id="instagram">
+                    Instagram
+                </a>
+              </li>
+            <li>
+                <img src="https://images.icon-icons.com/1558/PNG/512/353427-logo-twitter_107479.png" alt="t-img">
+                <a href="https://x.com/nike" target="_blank" id="Twitter">
+                    Twitter
+                </a>
+            </li>
+        </div>
+            <p>
+            Creado por 
+            
+            <a href=""><b>Joshua García Alcántara</b></a>
+            <img src="https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png" alt="">
+        </p>
+        </ul>
+    </footer>
 </body>
 </html>

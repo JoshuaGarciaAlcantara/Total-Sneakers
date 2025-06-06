@@ -3,18 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Soporte</title>
-  <style>
-    body{
-        margin: 0;
-    }
-    form { background: #222; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
-    input, textarea { field-sizing:content; 100%; padding: 10px; margin-top: 10px; background: #333; color: white; border: none; border-radius: 5px; }
-    button { background: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 15px; cursor: pointer; }
-  </style>
   <link rel="stylesheet" href="../client/styles/navbar.css">
   <link rel="stylesheet" href="../client/styles/footer.css">
   <link rel="stylesheet" href="../client/styles/index.css">
+  <link rel="stylesheet" href="../client/styles/login.css">
   <script src="../client/scripts/navbar.js"></script>
+  <script src="../client/scripts/login.js"></script>
 </head>
 <body>
 
@@ -42,19 +36,16 @@
     <a class="nav-link" href="#" onclick="closeMenu()">Ayuda</a>
   </div>
 </div>
-  <h1>Soporte Total Sneakers</h1>
+<div class="signContainer">
   <form action="send_support.php" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" required>
-
-    <label for="email">Correo electrónico:</label>
-    <input type="email" name="email" required>
-
-    <label for="mensaje">Mensaje:</label>
-    <textarea name="mensaje" rows="5" required></textarea>
+    <h2>Ayuda al cliente</h2>
+    <input type="text" name="nombre" required placeholder="Nombre">
+    <input type="email" name="email" required placeholder="Email">
+    <textarea name="mensaje" rows="5" required placeholder="Mensaje"></textarea>
 
     <button type="submit">Enviar</button>
   </form>
+  </div>
   <footer>
         <h3>
             ¿Listo para ser un cliente <strong>TOTAL</strong>!

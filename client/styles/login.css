@@ -26,10 +26,14 @@ form {
       border-radius: 10px;
       place-items: center;
       transition-duration: .5s;
+      margin:10px 0 ;
 
       h2{
         color: #FFF;
       }
+    }
+    form >textarea{
+      width: 100%;
     }
 
     input {

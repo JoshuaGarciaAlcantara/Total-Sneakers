@@ -39,7 +39,10 @@
   <form action="../../server/login.php" method="POST">
     <h2>Iniciar sesión</h2>
     <input type="email" name="email" required placeholder="Correo electrónico" class="signInputs">
-    <input type="password" name="password" required placeholder="Contraseña" class="signInputs">
+    <div >
+      <input type="password" name="password" required placeholder="Contraseña" class="signInputs">
+      <p>¿No tienes cuenta? <a href="signup.html">Crea una</a></p>
+    </div>
     <button type="submit">Entrar</button>
   </form>
 </div>
@@ -53,20 +56,20 @@
             <div id="socialMedia">
             <li>
                 <img src="https://cdn-icons-png.flaticon.com/512/20/20673.png" alt="F-img">
-                <a href="https://www.facebook.com/nike/?locale=es_LA" target="_blank">
+                <a href="https://www.facebook.com/nike/?locale=es_LA" target="_blank" id="facebook">
                     Facebook
                 </a>
                 
             </li>
             <li>
                 <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="I-Img">
-                <a href="https://www.instagram.com/nike/" target="_blank">
+                <a href="https://www.instagram.com/nike/" target="_blank" id="instagram">
                     Instagram
                 </a>
               </li>
             <li>
                 <img src="https://images.icon-icons.com/1558/PNG/512/353427-logo-twitter_107479.png" alt="t-img">
-                <a href="https://x.com/nike" target="_blank">
+                <a href="https://x.com/nike" target="_blank" id="Twitter">
                     Twitter
                 </a>
             </li>

@@ -66,7 +66,7 @@
     }
     #spark4{
       position: absolute;
-      background-color: aquamarine;
+      background-color: rgb(158, 33, 33);
       animation: sparksAnimation2 10s infinite linear;
       width: 10px;
       height: 10px;
@@ -82,6 +82,15 @@
       bottom: 1px;
       z-index: -21;
     }
+    #spark6{
+      position: absolute;
+      background-color: rgb(158, 33, 33);
+      animation: sparksAnimation2 8s infinite linear;
+      width: 50px;
+      height: 50px;
+      right: 20px;
+      top: 1px
+    }
 
     @keyframes sparksAnimation1{
       from{
@@ -91,12 +100,18 @@
       to {
         transform: translateX(-450%) rotate(-40deg);
         transition-duration: 1s;
+        opacity: 0;
         background-color: transparent;
       }
     }
     @keyframes sparksAnimation2{
       from{
         transform: translateX(100%);
+        background-color: transparent;
+        transition-duration: 1s;
+      }
+      50%{
+        background-color: rgb(158, 33, 33);
         transition-duration: 1s;
       }
       to {
@@ -119,15 +134,18 @@
       }
     }
     /* in this part ends the sparks animations */
-
     main > img {
       height: 100dvh;
       object-fit: cover;
       position: fixed;
-      z-index: -20;
+      z-index: -1;
       transition-duration: 1s;
       animation: ease;
-      filter: drop-shadow(5px 5px 10px #000000);
+      filter: drop-shadow(5px 5px 10px #000000) grayscale(100%);
+    }
+    main >img:hover{
+      transition-duration: 1s;
+      filter: grayscale(0%) drop-shadow(5px 5px 10px #000000);
     }
     header{
       display: grid;
@@ -219,11 +237,10 @@
         padding-left: 100%; /*Initial offset, which places the text off-screen*/
         color:#000000;
     }
-    header >h6::before{
-      width: 1000px;
-      height: 10px;
-      background-color: #000;
+    header >h6:hover{
+      color: rgb(171, 20, 20);
     }
+    
     @keyframes floatText {
       to {
         transform: translateX(-200%);
@@ -329,9 +346,8 @@
 
   <div id="spark1"></div>
   <div id="spark2"></div>
-  <img id="spark3" src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_1776,f_auto,q_auto/https://www.allbirds.com/cdn/shop/products/Allbirds_WL_RN_SF_PDP_Natural_White_BTY_6ff24683-2103-4b44-9094-7f15b48f6058.png?v=1703567534" alt="sneaker2">
+  <img id="spark3" src="https://cdn11.bigcommerce.com/s-azs446wiic/images/stencil/1280x1280/products/545/6907/l0b8nlhbafxuusgbci7v__51564.1688060921.png?c=2" alt="sneaker2">
   <div id="spark4">
-    <img src="" alt="sneaker1">
   </div>
     <img id="spark5" src="https://www.hogan.com/medias/107-Hogan.png?context=bWFzdGVyfGltYWdlc3wxNTE4ODd8aW1hZ2UvcG5nfGltYWdlcy9oMzUvaGRjLzkzMzU2MTkxMjUyNzgucG5nfDE3NzcwYzMyMWNhYWE5ZWQzMWExNDI1NDExNzVhYjJhZmI5YmJjMzE1ZTVlZjI1YmNjMjk5MDk1OTdhMmI3NDY" alt="sneaker2">
   <div id="spark6"></div>
@@ -358,7 +374,7 @@
         <p>
             Somos más que una tienda de zapatillas; somos una comunidad basada en una pasión compartida por el calzado, el estilo y la autoexpresión.
             <br><br>
-            En Totala, creemos que cada par de zapatillas cuenta una historia. Desde zapatillas clásicas que evocan nostalgia hasta diseños vanguardistas que revolucionan la innovación, seleccionamos una colección diversa para todos los gustos y preferencias. Ya seas un coleccionista apasionado, un entusiasta casual o alguien que simplemente busca el par perfecto para completar su look, tenemos algo para ti.
+            En Totala, creemos que cada par de zapatillas cuenta una historia. 
             <br><br>
             Nuestra misión es simple: conectar a las personas con las zapatillas que les llaman la atención. 
         </p>

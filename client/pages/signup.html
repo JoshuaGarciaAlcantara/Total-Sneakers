@@ -5,6 +5,9 @@
     <title>Signup</title>
     <link rel="stylesheet" href="..//styles/login.css">
     <link rel="stylesheet" href="..//styles/navbar.css">
+    <link rel="stylesheet" href="..//styles/footer.css">
+    <link rel="stylesheet" href="..//styles/index.css">
+    <script src="../scripts/login.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -32,12 +35,17 @@
   </div>
 </div>
 
-    <h2>Crear cuenta</h2>
+<div class="signContainer">
   <form action="../../server/signup.php"  method="post">
-    <input type="email" name="email" required placeholder="Correo electrónico">
-    <input type="password" name="password" required placeholder="Contraseña">
+    <h2>Crear cuenta</h2>
+    <input type="text" name="fullName" required placeholder="Nombre Completo" class="signInputs">
+    <input type="email" name="email" required placeholder="Correo electrónico" class="signInputs">
+    <input type="text" name="fullName" required placeholder="Nombre Completo" class="signInputs">
+    <input type="password" name="password" required placeholder="Confrimación de contraseña" class="signInputs">
+    <input type="password" name="passwordConfirmation" required placeholder="Contraseña" class="signInputs">
     <button type="submit">Registrarse</button>
   </form>
+  </div>
 
 
 
