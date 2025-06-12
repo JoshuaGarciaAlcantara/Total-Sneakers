@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . "/../config/urls.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -316,30 +320,9 @@
 </head>
 <body>
 
-<div class="navbar">
-  <button class="toggle-btn" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </button>
-  <div id="navMenu" class="nav-menu">
-    <a class="nav-link" href="index.html" onclick="closeMenu()">Inicio</a>
-    <a class="nav-link" href="login.html" onclick="closeMenu()">Iniciar sesión</a>
-    
-    <div class="nav-item">
-      <span class="nav-link" onclick="toggleDropdown()">Sneakers ▼</span>
-      <div id="dropdown" class="dropdown">
-        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total kids</a>
-        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total teens</a>
-        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total senior</a>
-        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total lady</a>
-        <a class="nav-link" href="../../server/sneakersRefresh.php" onclick="closeMenu()">Total All stars</a>
-      </div>
-    </div>
-
-    <a class="nav-link" href="../../server/support.php" onclick="closeMenu()">Ayuda</a>
-  </div>
-</div>
+<?php 
+  include "navbar.php";
+?>
 <script src="../scripts/navbar.js"></script>
 <script type="module" src="../scripts/indexBackground.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
@@ -388,39 +371,8 @@
       <iframe width="80%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=C.%20Cam.%20a%20Nextengo,%20Santa%20Apolonia,%20Azcapotzalco,%2002790%20Ciudad%20de%20M%C3%A9xico,%20CDMX+(TOTAL%20SNEAKERS)&amp;t=p&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Cycling gps</a></iframe>
     </section>
 
-    <footer>
-        <h3>
-            ¿Listo para ser un cliente <strong>TOTAL</strong>!
-        </h3>
-        <ul id="">
-            <div id="socialMedia">
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/20/20673.png" alt="F-img">
-                <a href="https://www.facebook.com/nike/?locale=es_LA" target="_blank">
-                    Facebook
-                </a>
-                
-            </li>
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="I-Img">
-                <a href="https://www.instagram.com/nike/" target="_blank">
-                    Instagram
-                </a>
-              </li>
-            <li>
-                <img src="https://images.icon-icons.com/1558/PNG/512/353427-logo-twitter_107479.png" alt="t-img">
-                <a href="https://x.com/nike" target="_blank">
-                    Twitter
-                </a>
-            </li>
-        </div>
-            <p>
-            Creado por 
-            
-            <a href="https://github.com/Galshua" target="_blank"><b>Joshua García Alcántara</b></a>
-            <img src="https://images.icon-icons.com/3685/PNG/512/github_logo_icon_229278.png" alt="gh">
-        </p>
-        </ul>
-    </footer>
+    <?php
+    include "footer.php"; 
+    ?>
 </body>
 </html>

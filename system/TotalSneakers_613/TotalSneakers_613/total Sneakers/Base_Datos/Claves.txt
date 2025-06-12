@@ -1,0 +1,2 @@
+user:veronica@admin.com  password:1
+user:veronica@seller.com password: 3

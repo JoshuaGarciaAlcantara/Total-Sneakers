@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strpos($output, 'ENVIADO') !== false) {
         echo "<script src=\"https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js\">
         </script><script>
-        window.location.href='support.php';
+        window.location.href='../client/pages/support.php';
         const myPopup = new Popup({
             id: \"my-popup\",
             title: \"202\",

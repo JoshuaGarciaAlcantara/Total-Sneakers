@@ -1,15 +1,17 @@
 CREATE DATABASE IF NOT EXISTS sneakers_db;
 USE sneakers_db;
 
--- Tabla para usuarios
+// Tabla para usuarios
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    lastName VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabla para sneakers
+// Tabla para sneakers
 CREATE TABLE IF NOT EXISTS sneakers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     category ENUM('Total kids', 'Total teens', 'Total senior', 'Total lady', 'Total all stars') NOT NULL,
@@ -20,12 +22,12 @@ CREATE TABLE IF NOT EXISTS sneakers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Registros ejemplo para usuarios (con password hashed ficticio)
+// Registros ejemplo para usuarios (con password hashed ficticio)
 INSERT INTO users (email, password) VALUES
 ('user1@example.com', '$2y$10$abcdefghijklmnopqrstuv1234567890abcdefghi'), 
 ('user2@example.com', '$2y$10$mnopqrstuvabcdefghijkl1234567890abcdefghi');
 
--- Registros ejemplo para sneakers
+// Registros ejemplo para sneakers
 INSERT INTO sneakers (category, name, description, price, stock) VALUES
 ('Total kids', 'Kid Runner 2025', 'Zapatilla ligera para niños, ideal para correr y jugar.', 29.99, 50),
 ('Total teens', 'Urban Flash', 'Diseño moderno y colorido para jóvenes urbanos.', 49.99, 30),

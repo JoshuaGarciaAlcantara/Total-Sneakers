@@ -1,0 +1,105 @@
+CREATE DATABASE testing;
+USE testing;
+-- Tabla Usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'client', 'proveedor', 'vendedor') NOT NULL
+);
+
+-- Insertar datos en Usuarios
+INSERT INTO usuarios (id, email, password, role) VALUES
+(1, 'veronica@admin.com', '1', 'admin'),
+(2, 'andrea.molina@example.com', '$2y$10$..PNtzC9I6efKr3PO1uZkuzWSsRmGHMGy7/9cUpRnli...', 'client'),
+(4, 'pedro.sanchez@example.com', '$2y$10$6ipzakxEMtzOJSbe6OLXY.Sk1/BAbVHoewUz6es9P4F...', 'client'),
+(11, 'claudia.ramirez@example.com', '$2y$10$WquuaC7ufBcD677rafTna.bsbzA8hoI1b6mL/u8LhNQ...', 'client'),
+(12, 'miguel.torres@example.com', '$2y$10$2oKyiHk4B8lGYoEeBRGS5OkAT45FCt5cDMw5v7fnS0R...', 'client'),
+(13, 'fernanda.diaz@example.com', '$2y$10$Csjkwh4NbL1j.YxwWr.DlOockZv9IM58kETqB5IhL6F...', 'client'),
+(14, 'mr@example.com', '$2y$10$Oxfkt.pj8tqcx9yRtZ2RP.WDkFVt02W5yxPrFRiuHmB...', 'proveedor'),
+(15, 'alejandra@prov.com', '$2y$10$qf2fonNXqXrvgwIra7QwfufkTVD83ove4TiOTeN.kQC...', 'proveedor'),
+(16, 'jos@pro.com', '$2y$10$sfJ.WA5KJyJnCoMlH9ABPuHFjT9DVwaEyEZFCUqR4sf...', 'proveedor'),
+(17, 'Da@pro.com', '$2y$10$QJw3s90k0qSfpmor/.URteft9r7qK47Nehrr3IFXb/U...', 'proveedor'),
+(18, 'ivan@pro.com', '$2y$10$/qcJY9n4Mk5utKg.R7rOU.o9/RsdVGbr.AsMjT9zy2Y...', 'proveedor'),
+(19, 'veronica@seller.com', '3', 'vendedor');
+
+-- Tabla Proveedores
+CREATE TABLE IF NOT EXISTS proveedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    telefono VARCHAR(50),
+    empresa VARCHAR(255),
+    direccion TEXT
+);
+
+-- Insertar datos en Proveedores
+INSERT INTO proveedores (id, nombre, telefono, empresa, direccion) VALUES
+(14, 'mr@example.com', NULL, NULL, NULL),
+(15, 'alejandra@prov.com', NULL, NULL, NULL),
+(16, 'jos@pro.com', NULL, NULL, NULL),
+(17, 'Da@pro.com', NULL, NULL, NULL),
+(18, 'ivan@pro.com', NULL, NULL, NULL);
+
+-- Tabla Vendedores
+CREATE TABLE IF NOT EXISTS vendedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    telefono VARCHAR(50),
+    empresa VARCHAR(255),
+    direccion TEXT
+);
+
+-- Insertar datos en Vendedores
+INSERT INTO vendedores (id, nombre, telefono, empresa, direccion) VALUES
+(1, 'Marco Rivas', '5551234567', 'Distribuidora Rivas S.A.', NULL),
+(2, 'Alejandra Ortiz', '5557654321', 'SportLine México', NULL),
+(3, 'José Paredes', '5549876543', 'MaxSport Inc.', NULL),
+(4, 'Daniela Suárez', '5531122334', 'ProSneakers S.A.', NULL),
+(5, 'Iván Navarro', '5522233445', 'Global Kicks Co.', NULL);
+
+-- Tabla Clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    direccion TEXT,
+    telefono VARCHAR(50)
+);
+
+-- Insertar datos en Clientes
+INSERT INTO clientes (id, nombre, email, direccion, telefono) VALUES
+(1, 'Andrea Molina', 'andrea.molina@example.com', 'Av. Reforma 123, CDMX', NULL),
+(2, 'Pedro Sánchez', 'pedro.sanchez@example.com', 'Calle Hidalgo 45, Toluca', NULL),
+(3, 'Claudia Ramírez', 'claudia.ramirez@example.com', 'Insurgentes Sur 789, CDMX', NULL),
+(4, 'Miguel Torres', 'miguel.torres@example.com', 'Circuito Interior 234, Puebla', NULL),
+(5, 'Fernanda Díaz', 'fernanda.diaz@example.com', 'Av. Juárez 345, Guadalajara', NULL);
+CREATE TABLE IF NOT EXISTS sneakers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    state ENUM('available','unavailable') NOT NULL,
+    quantity INT NOT NULL
+);
+
+-- Insertar datos en Sneakers
+INSERT INTO sneakers (id, nombre, description, price, state, quantity) VALUES
+(2, 'Nike Revolution', 'Everyday comfort and style, all in one.', 90.00, 'available', 4),
+(3, 'Nike Flyknit Max', 'Ultimate cushioning with premium look.', 160.00, 'unavailable', 5),
+(4, 'Nike Air Max 270', 'All-day comfort with Max Air cushioning.', 150.00, 'available', 6),
+(5, 'Nike React Infinity', 'Soft and stable for long runs.', 140.00, 'unavailable', 7),
+(6, 'Nike Pegasus 39', 'Trusted daily trainer for all runners.', 130.00, 'available', 2),
+(7, 'Nike Free RN', 'Natural movement and barefoot feel.', 100.00, 'available', 2),
+(8, 'Nike Blazer Mid', 'Retro basketball style.', 110.00, 'unavailable', 2),
+(9, 'Nike Air Force 1', 'Timeless streetwear classic.', 115.00, 'available', 2),
+(10, 'Nike Cortez', 'Old-school running icon.', 90.00, 'available', 2),
+(11, 'Nike LeBron 19', 'Built for power and performance.', 170.00, 'unavailable', 2),
+(12, 'Nike Zoom Freak', 'Giannis signature sneaker.', 125.00, 'available', 2),
+(13, 'Nike Air VaporMax', 'Lightweight and futuristic cushioning.', 180.00, 'available', 2),
+(14, 'Nike SB Dunk Low', 'Skate-ready style.', 105.00, 'unavailable', 2),
+(15, 'Nike Metcon 7', 'Stable for weight training.', 130.00, 'available', 2),
+(16, 'Nike ZoomX Invincible', 'Super soft with high energy return.', 175.00, 'available', 2),
+(17, 'Nike KD 15', 'Smooth moves on the court.', 160.00, 'unavailable', 2),
+(18, 'Nike Air Huarache', 'Street-style with snug fit.', 120.00, 'available', 2),
+(19, 'Nike Wildhorse 7', 'Trail-ready and rugged.', 135.00, 'available', 2),
+(20, 'Nike Air Zoom SuperRep', 'For HIIT and circuit training.', 145.00, 'available', 2);
